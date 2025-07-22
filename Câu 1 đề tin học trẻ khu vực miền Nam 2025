@@ -1,0 +1,23 @@
+n = int(input())
+s1,s2,s3 = 0,0,0
+s1 = n * (n+1)//2
+
+k = 1
+while (True):
+    high = min(n,k*k)
+    low = max(1, (k-1)*(k-1) + 1)
+    if (high < low):
+        break
+    s2 += (high - low + 1)*k
+    k+=1
+
+k = 1
+while (True):
+    low = max(1,k*k*k)
+    high = min(n, (k+1)*(k+1)*(k+1) - 1)
+    if (high < low):
+        break
+    s3 += (high - low + 1)*k
+    k+=1
+ans = s1 + s2 + s3
+print(ans)
